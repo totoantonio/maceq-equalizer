@@ -4,7 +4,7 @@
 
 MacEQ intercepts audio from every app on your Mac at once — Spotify, Apple Music, YouTube, Safari, Chrome — and runs it through a 10-band parametric equalizer with professional stereo processing, a live spectrum analyzer, and loudness normalization. It uses Apple's native audio tap API, so nothing is installed into your system and nothing is modified.
 
-*Twentytwo Software Publishing — Cebu, Philippines*
+
 
 ---
 
