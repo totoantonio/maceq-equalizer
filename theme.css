@@ -1,0 +1,169 @@
+/* ---------------------------------------------------------------
+   Shared enhancements: web font, theme toggle, scroll reveal.
+   Loaded after each page's inline <style>, so it wins on conflict.
+   --------------------------------------------------------------- */
+
+/* Apple devices resolve -apple-system first and never reach Inter.
+   Everything else falls through to the web font. */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+    "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Manual theme override ---------- */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #FFFFFF;
+  --bg-2: #F5F5F7;
+  --text: #1D1D1F;
+  --muted: #6E6E73;
+  --line: rgba(0, 0, 0, .12);
+  --blue: #007AFF;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1C1C1E;
+  --bg-2: #232326;
+  --text: #F5F5F7;
+  --muted: #98989D;
+  --line: rgba(255, 255, 255, .14);
+  --blue: #0A84FF;
+}
+
+body {
+  transition: background-color .25s ease, color .25s ease;
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--text);
+  transform: rotate(-15deg);
+}
+
+.theme-toggle .sf-symbol {
+  width: 16px;
+  height: 16px;
+}
+
+/* Show the icon for the theme you would switch TO. */
+.theme-toggle .theme-sun { display: none; }
+.theme-toggle .theme-moon { display: inline-block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .theme-sun { display: inline-block; }
+  :root:not([data-theme="light"]) .theme-toggle .theme-moon { display: none; }
+}
+
+:root[data-theme="dark"] .theme-toggle .theme-sun { display: inline-block; }
+:root[data-theme="dark"] .theme-toggle .theme-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .theme-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .theme-moon { display: inline-block; }
+
+/* ---------- Scroll reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s cubic-bezier(.22, .61, .36, 1),
+              transform .7s cubic-bezier(.22, .61, .36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Screenshots get a slightly larger, slower entrance. */
+figure.reveal {
+  transform: translateY(34px) scale(.985);
+}
+
+figure.reveal.visible {
+  transform: none;
+}
+
+/* ---------- Hero badge veil ---------- */
+
+.badge-veil {
+  filter: blur(7px);
+  opacity: .45;
+  transform: scale(.97);
+  transition: filter .8s ease, opacity .8s ease, transform .8s ease;
+  pointer-events: none;
+}
+
+.badge-veil.revealed {
+  filter: none;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.scroll-hint {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-hint .sf-symbol {
+  width: 13px;
+  height: 13px;
+  vertical-align: -1px;
+  margin-left: 5px;
+  animation: nudge 1.8s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
+}
+
+/* ---------- Respect reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  figure.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .badge-veil {
+    filter: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .scroll-hint { display: none; }
+  .scroll-hint .sf-symbol { animation: none; }
+  .theme-toggle:hover { transform: none; }
+  body { transition: none; }
+}

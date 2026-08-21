@@ -145,6 +145,11 @@
     .lede { font-size: 17px; }
   }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
 </head>
 <body>
 
@@ -155,6 +160,10 @@
   <a href="index.html#presets">Presets</a>
   <a href="index.html#guide">How to use</a>
   <a href="support.html">Support</a>
+  <button class="theme-toggle" type="button" aria-label="Switch appearance" title="Change appearance">
+    <span class="sf-symbol theme-sun" style="--sf:url('Assets/Symbols/sun.max.png')" aria-hidden="true"></span>
+    <span class="sf-symbol theme-moon" style="--sf:url('Assets/Symbols/moon.png')" aria-hidden="true"></span>
+  </button>
 </nav>
 
 <h1>Privacy Policy</h1>
@@ -162,7 +171,7 @@
 
 <p class="lede">macEQ processes audio locally on your Mac. Nothing is recorded, stored, or sent anywhere.</p>
 
-<h2><span class="sf-symbol" style="--sf:url('Assets/Symbols/waveform.png')" aria-hidden="true"></span>System audio access</h2>
+<h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/waveform.png')" aria-hidden="true"></span>System audio access</h2>
 <p>
   macEQ requests Screen &amp; System Audio Recording access so it can receive system audio from apps
   such as Spotify, Apple Music, YouTube, browsers, media players, and other audio-producing apps.
@@ -171,7 +180,7 @@
   This access is used only to apply real-time equalizer and audio effects on your Mac.
 </p>
 
-<h2><span class="sf-symbol" style="--sf:url('Assets/Symbols/shield.png')" aria-hidden="true"></span>Local processing</h2>
+<h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/shield.png')" aria-hidden="true"></span>Local processing</h2>
 <p>
   macEQ processes audio locally on the device. macEQ does not record, save, store, upload, transmit,
   sell, or share captured audio.
@@ -181,18 +190,18 @@
   Audio Recording because macOS groups system audio recording under that privacy area.
 </p>
 
-<h2><span class="sf-symbol" style="--sf:url('Assets/Symbols/apps.png')" aria-hidden="true"></span>Data collection</h2>
+<h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/apps.png')" aria-hidden="true"></span>Data collection</h2>
 <p>
   macEQ does not collect personal data, listening history, audio content, screen content, analytics,
   advertising identifiers, or tracking data.
 </p>
 
-<h2><span class="sf-symbol" style="--sf:url('Assets/Symbols/menubar.png')" aria-hidden="true"></span>Network use</h2>
+<h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/menubar.png')" aria-hidden="true"></span>Network use</h2>
 <p>
   macEQ does not require an internet connection for equalizer, spatial, or effects processing.
 </p>
 
-<h2><span class="sf-symbol" style="--sf:url('Assets/Symbols/power.png')" aria-hidden="true"></span>Your control</h2>
+<h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/power.png')" aria-hidden="true"></span>Your control</h2>
 <p>
   You can enable or disable System EQ at any time from the macEQ window. Disabling System EQ restores
   normal system audio routing.
@@ -202,7 +211,7 @@
   Screen &amp; System Audio Recording.
 </p>
 
-<h2><span class="sf-symbol" style="--sf:url('Assets/Symbols/save.png')" aria-hidden="true"></span>Contact</h2>
+<h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/save.png')" aria-hidden="true"></span>Contact</h2>
 <p>
   For privacy questions, use the <a href="support.html">support form</a>.
 </p>

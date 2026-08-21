@@ -41,11 +41,13 @@
   "operatingSystem": "macOS 27",
   "author": { "@type": "Person", "name": "totoantonio" },
   "publisher": { "@type": "Person", "name": "totoantonio" },
+  "slogan": "Hear Your Mac the Way It Was Meant to Sound",
   "offers": {
     "@type": "Offer",
     "price": "14.99",
     "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "description": "Free to try. One-time USD 14.99 unlocks the full version."
   },
   "description": "macEQ is a system-wide audio equalizer for macOS 27. It processes audio from every app at once using Apple's native CATapDescription audio tap API, so no virtual audio driver is installed and no system audio routing is changed.",
   "featureList": [
@@ -255,6 +257,11 @@
     .tagline { font-size: 17px; }
   }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
 </head>
 <body>
 
@@ -265,6 +272,10 @@
   <a href="#guide">How to use</a>
   <a href="support.html">Support</a>
   <a href="privacy.html">Privacy</a>
+  <button class="theme-toggle" type="button" aria-label="Switch appearance" title="Change appearance">
+    <span class="sf-symbol theme-sun" style="--sf:url('Assets/Symbols/sun.max.png')" aria-hidden="true"></span>
+    <span class="sf-symbol theme-moon" style="--sf:url('Assets/Symbols/moon.png')" aria-hidden="true"></span>
+  </button>
 </nav>
 
 <img class="app-icon" src="Assets/Icon-macOS-Default-1024@1x.png" width="128" height="128" alt="macEQ app icon">
@@ -272,10 +283,11 @@
 <h1>macEQ</h1>
 <p class="tagline">System-wide audio equalizer for macOS</p>
 
-<p class="download"><a class="badge" href="#" aria-label="Download macEQ on the App Store"><img src="Assets/app-store-badge.svg" width="180" height="60" alt="Download on the App Store"></a></p>
-<p class="requirements">$ 14.99 · One-time purchase · Requires macOS 27 · No Driver, No Subscription</p>
+<p class="download"><a class="badge badge-veil" href="#" aria-label="Download macEQ on the App Store"><img src="Assets/app-store-badge.svg" width="180" height="60" alt="Download on the App Store"></a></p>
+<p class="scroll-hint">Scroll to see what it does<span class="sf-symbol" style="--sf:url('Assets/Symbols/power.png')" aria-hidden="true"></span></p>
+<p class="requirements">Free to try · Requires macOS 27 · No Driver, No Subscription</p>
 
-<figure>
+<figure class="reveal">
   <img src="Assets/Main%20App.png" width="1664" height="1472" alt="macEQ equalizer showing a live spectrum analyzer and a ten-band EQ curve">
 </figure>
 
@@ -291,8 +303,8 @@
   routing returns in real time.
 </p>
 
-<h2 id="features"><span class="sf-symbol" style="--sf:url('Assets/Symbols/waveform.png')" aria-hidden="true"></span>Features</h2>
-<ul>
+<h2 id="features" class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/waveform.png')" aria-hidden="true"></span>Features</h2>
+<ul class="reveal">
   <li><strong>Every App, Simultaneously</strong> — one EQ for the whole system, no per-app setup.</li>
   <li><strong>No Driver, No system changes</strong> — no kernel extension, no virtual device in Sound settings.</li>
   <li><strong>10-band parametric EQ</strong> — 32 Hz to 16 kHz, ±12 dB, with a live bezier curve as you drag.</li>
@@ -302,8 +314,8 @@
   <li><strong>Menu Bar App</strong> — adjust the curve, switch presets or set volume without leaving what you're doing.</li>
 </ul>
 
-<h2 id="spatial"><span class="sf-symbol" style="--sf:url('Assets/Symbols/spatial.png')" aria-hidden="true"></span>Spatial and effects</h2>
-<ul>
+<h2 id="spatial" class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/spatial.png')" aria-hidden="true"></span>Spatial and effects</h2>
+<ul class="reveal">
   <li><strong>Stereo Width</strong> — true Mid-Side processing from 0% mono to 200% super-wide.</li>
   <li><strong>Crossfeed</strong> — blends 30% of each channel into the opposite ear, so long headphone sessions stop being tiring.</li>
   <li><strong>Spatial Surround</strong> — virtual 5-channel surround with an animated speaker diagram.</li>
@@ -315,12 +327,12 @@
   <li><strong>Channel Balance</strong> — independent left/right level control.</li>
 </ul>
 
-<figure>
+<figure class="reveal">
   <img src="Assets/Spatial%20Effect.png" width="1664" height="1472" loading="lazy" alt="macEQ spatial surround control with five virtual speaker positions">
   <figcaption>Five virtual speaker positions with adjustable intensity.</figcaption>
 </figure>
 
-<h2 id="presets"><span class="sf-symbol" style="--sf:url('Assets/Symbols/preset.png')" aria-hidden="true"></span>Presets</h2>
+<h2 id="presets" class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/preset.png')" aria-hidden="true"></span>Presets</h2>
 <p>
   13 built-in presets, plus unlimited of your own. Each tile shows its EQ shape at a glance
   and comes alive with the music when selected.
@@ -334,12 +346,12 @@
   and auto level — under one name. One tap restores everything.
 </p>
 
-<figure>
+<figure class="reveal">
   <img src="Assets/Presets%20Tab.png" width="1664" height="1526" loading="lazy" alt="macEQ presets tab with saved and built-in sound profiles">
 </figure>
 
-<h2 id="guide"><span class="sf-symbol" style="--sf:url('Assets/Symbols/power.png')" aria-hidden="true"></span>How to use</h2>
-<ol>
+<h2 id="guide" class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/power.png')" aria-hidden="true"></span>How to use</h2>
+<ol class="reveal">
   <li>Open macEQ and enable System EQ from the bottom bar.</li>
   <li>Use the power button to turn real-time processing on or off.</li>
   <li>Pick a preset, or shape the 10-band EQ manually.</li>
@@ -350,13 +362,13 @@
 </ol>
 
 <p class="download"><a class="badge" href="#" aria-label="Download macEQ on the App Store"><img src="Assets/app-store-badge.svg" width="180" height="60" alt="Download on the App Store"></a></p>
-<p class="requirements">USD 14.99 · One-time purchase · Requires macOS 27</p>
+<p class="requirements">Free to try · Requires macOS 27 · No Driver, No Subscription</p>
 
 <hr>
 
 <footer>
   <p>Every App On Your mac, Tuned.</p>
-  <p><a href="https://github.com/totoantonio/maceq-website">GitHub</a> · ToTo Antonio</p>
+  <p><a href="https://maceq-equalizer.pages.dev">macEQ</a> · ToTo Antonio</p>
 </footer>
 
 </body>

@@ -1,6 +1,6 @@
 # macEQ
 
-**System-wide audio EQ and enhancement for macOS. USD 14.99, one-time. No driver. No subscription.**
+**System-wide audio EQ and enhancement for macOS. Free to try · Requires macOS 27 · No Driver, No Subscription.**
 
 **Requires macOS 27. Earlier versions of macOS are not supported.**
 
@@ -53,7 +53,7 @@ Bass Boost · Deep Bass · Treble Boost · Crisp Treble · Flat · Music · Movi
 ## Spatial & Stereo
 
 - **Spatial Surround** — virtual 5-channel surround with animated speaker diagram (FL, FC, FR, RL, RR) showing sonar pulse waves
-- **Dolby Stereo** — plate reverb processing for cinematic stereo expansion
+- **Enhanced Stereo** — plate reverb processing for cinematic stereo expansion
 - **Stereo Width** — M/S (Mid-Side) processing from 0% mono to 200% super-wide — the same technique used in professional mastering studios
 - **Crossfeed** — blends 30% of each channel into the opposite ear, removing the "sound inside your skull" effect on headphones
 - **Channel Balance** — independent L/R channel level control for hearing compensation or uneven headphones
@@ -82,7 +82,7 @@ macEQ is free for testing, No-driver, No-Subscription macOS audio enhancer that 
 
 ## This Repository
 
-This repo holds the **macEQ website** — the landing page and marketing site. The app itself is a native macOS app built in Xcode.
+This repo holds the **macEQ website** — the landing page. The app itself is a native macOS app built in Xcode.
 
 ---
 
