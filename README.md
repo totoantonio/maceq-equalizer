@@ -2,6 +2,8 @@
 
 **System-wide audio EQ and enhancement for macOS. Free. No driver. No subscription.**
 
+**Requires macOS 27. Earlier versions of macOS are not supported.**
+
 MacEQ intercepts audio from every app on your Mac at once — Spotify, Apple Music, YouTube, Safari, Chrome — and runs it through a 10-band parametric equalizer with professional stereo processing, a live spectrum analyzer, and loudness normalization. It uses Apple's native audio tap API, so nothing is installed into your system and nothing is modified.
 
 

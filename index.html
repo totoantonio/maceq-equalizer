@@ -3,671 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MacEQ — System-Wide Audio EQ for Mac</title>
-<meta name="description" content="Free system-wide equalizer and audio enhancer for macOS. 10-band EQ, spatial audio, crossfeed, volume boost — across every app. No driver. No subscription.">
+<title>macEQ — System-Wide Audio EQ for macOS 27</title>
+<meta name="description" content="A free system-wide equalizer and audio enhancer designed exclusively for macOS 27. No driver. No subscription.">
 
-<meta property="og:title" content="MacEQ — System-Wide Audio EQ for Mac">
-<meta property="og:description" content="Free system-wide equalizer and audio enhancer for macOS. No driver. No subscription.">
+<meta property="og:title" content="macEQ — System-Wide Audio EQ for macOS 27">
+<meta property="og:description" content="Free system-wide audio control, designed exclusively for macOS 27.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="128x128" href="Assets/favicon.png">
 
 <style>
   :root {
-    --bg: #1C1C1E;
-    --bg-2: #232326;
-    --bg-3: #2C2C2F;
-    --line: rgba(255,255,255,.10);
-    --text: #F5F5F7;
-    --muted: #98989D;
+    color-scheme: light dark;
+    --bg: #FFFFFF;
+    --text: #1D1D1F;
+    --muted: #6E6E73;
+    --line: rgba(0,0,0,.12);
     --blue: #007AFF;
-    --purple: #A855F7;
-    --green: #30D158;
-    --radius: 16px;
-    --max: 1080px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1C1C1E;
+      --text: #F5F5F7;
+      --muted: #98989D;
+      --line: rgba(255,255,255,.14);
+      --blue: #0A84FF;
+    }
   }
 
   * { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
   body {
-    margin: 0;
+    margin: 0 auto;
+    max-width: 680px;
+    padding: 26px 24px 60px;
     background: var(--bg);
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  a { color: var(--blue); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  .wrap {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  a { color: var(--blue); }
+  a:hover { text-decoration: none; }
 
   /* ---------- Nav ---------- */
 
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(28,28,30,.72);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .nav {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 52px;
+  nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 56px;
+    font-size: 15px;
   }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-weight: 600;
-    font-size: 17px;
-    letter-spacing: -.01em;
-    color: var(--text);
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
   }
-  .brand:hover { text-decoration: none; }
+  nav a:hover { color: var(--text); }
 
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-    font-size: 14px;
-  }
-  .nav-links a { color: var(--muted); }
-  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  /* ---------- SF Symbols ---------- */
 
-  @media (max-width: 700px) {
-    .nav-links a:not(.btn-sm) { display: none; }
-  }
-
-  .btn-sm {
-    background: var(--blue);
-    color: #fff !important;
-    padding: 6px 14px;
-    border-radius: 980px;
-    font-weight: 500;
-    font-size: 14px;
-  }
-  .btn-sm:hover { background: #0A84FF; text-decoration: none !important; }
-
-  /* ---------- Hero ---------- */
-
-  .hero {
-    position: relative;
-    text-align: center;
-    padding: 100px 0 80px;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: -280px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
-    height: 620px;
-    background: radial-gradient(ellipse at center, rgba(0,122,255,.20), rgba(168,85,247,.10) 45%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero .wrap { position: relative; }
-
-  .eyebrow {
+  .sf-symbol {
     display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    color: var(--blue);
-    border: 1px solid rgba(0,122,255,.35);
-    background: rgba(0,122,255,.08);
-    padding: 5px 13px;
-    border-radius: 980px;
-    margin-bottom: 26px;
+    width: 1em;
+    height: 1em;
+    flex: 0 0 auto;
+    background: currentColor;
+    -webkit-mask: var(--sf) center / contain no-repeat;
+    mask: var(--sf) center / contain no-repeat;
+  }
+
+  .app-icon {
+    display: block;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 22px;
   }
 
   h1 {
-    margin: 0 0 20px;
-    font-size: clamp(40px, 7.5vw, 76px);
-    line-height: 1.04;
-    letter-spacing: -.03em;
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -.02em;
     font-weight: 700;
   }
 
-  .grad {
-    background: linear-gradient(100deg, var(--blue), var(--purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .sub {
-    max-width: 620px;
-    margin: 0 auto 36px;
-    font-size: clamp(17px, 2.2vw, 20px);
+  .tagline {
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 19px;
     color: var(--muted);
   }
 
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-    align-items: center;
+  .download {
+    margin: 32px 0 0;
+    text-align: center;
   }
 
-  .btn {
+  .badge {
     display: inline-block;
-    background: var(--blue);
-    color: #fff;
-    font-weight: 600;
-    font-size: 17px;
-    padding: 14px 32px;
-    border-radius: 980px;
-    transition: transform .15s ease, background .15s ease;
+    line-height: 0;
   }
-  .btn:hover { background: #0A84FF; transform: translateY(-1px); text-decoration: none; }
+  .badge:hover { opacity: .85; }
 
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--line);
+  .badge img {
+    width: 180px;
+    height: 60px;
   }
-  .btn-ghost:hover { background: var(--bg-3); }
 
-  .fineprint {
-    margin-top: 18px;
+  .requirements {
+    margin: 12px 0 0;
+    text-align: center;
     font-size: 14px;
     color: var(--muted);
   }
 
-  /* ---------- Animated EQ visual ---------- */
-
-  .visual {
-    margin: 60px auto 0;
-    max-width: 860px;
-    background: var(--bg-2);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 28px 24px 22px;
-    box-shadow: 0 30px 80px -20px rgba(0,0,0,.7);
+  figure {
+    margin: 44px 0;
   }
 
-  .visual-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 22px;
-    font-size: 12px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .visual-head strong { color: var(--green); font-weight: 600; }
-
-  .bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 2.2%;
-    height: 150px;
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
   }
 
-  .bar {
-    flex: 1;
-    border-radius: 4px 4px 2px 2px;
-    background: linear-gradient(to top, var(--blue), var(--purple));
-    animation: dance 1.5s ease-in-out infinite alternate;
-    min-height: 8px;
-  }
-
-  .bar:nth-child(1)  { animation-duration: 1.1s; height: 42% }
-  .bar:nth-child(2)  { animation-duration: 1.5s; height: 68% }
-  .bar:nth-child(3)  { animation-duration: .9s;  height: 85% }
-  .bar:nth-child(4)  { animation-duration: 1.7s; height: 55% }
-  .bar:nth-child(5)  { animation-duration: 1.2s; height: 72% }
-  .bar:nth-child(6)  { animation-duration: 1.4s; height: 48% }
-  .bar:nth-child(7)  { animation-duration: 1.0s; height: 90% }
-  .bar:nth-child(8)  { animation-duration: 1.6s; height: 60% }
-  .bar:nth-child(9)  { animation-duration: 1.3s; height: 78% }
-  .bar:nth-child(10) { animation-duration: 1.8s; height: 38% }
-
-  @keyframes dance {
-    from { transform: scaleY(.45); }
-    to   { transform: scaleY(1); }
-  }
-  .bar { transform-origin: bottom; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .bar { animation: none; }
-  }
-
-  .freqs {
-    display: flex;
-    gap: 2.2%;
+  figcaption {
     margin-top: 10px;
-    font-size: 10px;
+    text-align: center;
+    font-size: 14px;
     color: var(--muted);
-    font-variant-numeric: tabular-nums;
   }
-  .freqs span { flex: 1; text-align: center; }
-
-  /* ---------- Sections ---------- */
-
-  section { padding: 84px 0; border-top: 1px solid var(--line); }
-
-  .section-head { max-width: 660px; margin-bottom: 48px; }
 
   h2 {
-    font-size: clamp(28px, 4vw, 40px);
-    line-height: 1.15;
-    letter-spacing: -.02em;
-    margin: 0 0 14px;
-    font-weight: 700;
-  }
-
-  .section-head p { margin: 0; color: var(--muted); font-size: 18px; }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-  }
-
-  .card {
-    background: var(--bg-2);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 26px 24px;
-  }
-
-  .card h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 44px 0 12px;
+    font-size: 22px;
     letter-spacing: -.01em;
-  }
-
-  .card p { margin: 0; color: var(--muted); font-size: 15px; }
-
-  .card ul {
-    margin: 12px 0 0;
-    padding-left: 18px;
-    color: var(--muted);
-    font-size: 15px;
-  }
-  .card li { margin-bottom: 5px; }
-  .card li strong { color: var(--text); font-weight: 600; }
-
-  .icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    margin-bottom: 16px;
-    background: rgba(0,122,255,.12);
-    border: 1px solid rgba(0,122,255,.28);
-    font-size: 19px;
-  }
-  .icon.p { background: rgba(168,85,247,.12); border-color: rgba(168,85,247,.28); }
-  .icon.g { background: rgba(48,209,88,.12);  border-color: rgba(48,209,88,.28); }
-
-  /* ---------- Presets ---------- */
-
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-
-  .chip {
-    background: var(--bg-2);
-    border: 1px solid var(--line);
-    border-radius: 980px;
-    padding: 9px 18px;
-    font-size: 15px;
-    font-weight: 500;
-  }
-
-  /* ---------- Comparison ---------- */
-
-  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-  table {
-    width: 100%;
-    min-width: 560px;
-    border-collapse: collapse;
-    font-size: 15px;
-  }
-
-  th, td {
-    text-align: left;
-    padding: 15px 16px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  thead th {
-    font-size: 12px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--muted);
     font-weight: 600;
   }
 
-  tbody td:first-child { font-weight: 500; }
-  td.yes { color: var(--green); font-weight: 600; }
-  td.no  { color: var(--muted); }
-
-  /* ---------- Final CTA ---------- */
-
-  .final {
-    text-align: center;
-    background:
-      radial-gradient(ellipse at 50% 120%, rgba(168,85,247,.18), transparent 62%),
-      radial-gradient(ellipse at 50% -20%, rgba(0,122,255,.16), transparent 62%);
+  h2 .sf-symbol {
+    width: 30px;
+    height: 30px;
+    color: var(--blue);
   }
-  .final h2 { margin-bottom: 16px; }
-  .final p { max-width: 520px; margin: 0 auto 32px; color: var(--muted); font-size: 18px; }
 
-  /* ---------- Footer ---------- */
+  p { margin: 0 0 16px; }
+
+  ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  li { margin-bottom: 8px; }
+
+  li strong { font-weight: 600; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .9em;
+    font-weight: 600;
+  }
+
+  .presets {
+    color: var(--muted);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 48px 0 24px;
+  }
 
   footer {
-    border-top: 1px solid var(--line);
-    padding: 44px 0;
+    text-align: center;
     font-size: 14px;
     color: var(--muted);
   }
 
-  .foot-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: space-between;
-    align-items: center;
-  }
+  footer p { margin: 0 0 6px; }
 
-  .tagline { font-weight: 600; color: var(--text); }
+  @media (max-width: 520px) {
+    body { padding-top: 48px; }
+    h1 { font-size: 32px; }
+    .tagline { font-size: 17px; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <nav class="nav">
-    <a class="brand" href="#top">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <rect x="1"  y="8"  width="3" height="8"  rx="1.2" fill="#007AFF"/>
-        <rect x="6"  y="3"  width="3" height="13" rx="1.2" fill="#4B9BFF"/>
-        <rect x="11" y="6"  width="3" height="10" rx="1.2" fill="#8B7BF7"/>
-        <rect x="16" y="10" width="3" height="6"  rx="1.2" fill="#A855F7"/>
-      </svg>
-      MacEQ
-    </a>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#presets">Presets</a>
-      <a href="#compare">Compare</a>
-      <a class="btn-sm" href="#download">Download</a>
-    </div>
-  </nav>
-</header>
+<nav>
+  <a href="#features">Features</a>
+  <a href="#spatial">Spatial</a>
+  <a href="#presets">Presets</a>
+  <a href="#guide">How to use</a>
+  <a href="support.html">Support</a>
+  <a href="privacy.html">Privacy</a>
+</nav>
 
-<main id="top">
+<img class="app-icon" src="Assets/Icon-macOS-Default-1024@1x.png" width="128" height="128" alt="macEQ app icon">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Free · No driver · No subscription</span>
-      <h1>Your Mac has been<br><span class="grad">holding back.</span></h1>
-      <p class="sub">
-        MacEQ is a system-wide equalizer and audio enhancer for macOS. It shapes the
-        sound of <em>every</em> app at once — Spotify, Apple Music, YouTube, Safari,
-        Chrome — with a 10-band EQ, studio stereo processing, and a live spectrum analyzer.
-      </p>
-      <div class="cta-row">
-        <a class="btn" href="#download">Download for Mac</a>
-        <a class="btn btn-ghost" href="#features">See all features</a>
-      </div>
-      <p class="fineprint">Requires macOS 14.4 or later · Apple Silicon &amp; Intel</p>
+<h1>macEQ</h1>
+<p class="tagline">System-wide audio equalizer for macOS</p>
 
-      <div class="visual">
-        <div class="visual-head">
-          <span>10-Band Parametric EQ</span>
-          <strong>● Live spectrum</strong>
-        </div>
-        <div class="bars">
-          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-        <div class="freqs">
-          <span>32</span><span>64</span><span>125</span><span>250</span><span>500</span>
-          <span>1k</span><span>2k</span><span>4k</span><span>8k</span><span>16k</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<p class="download"><a class="badge" href="#" aria-label="Download macEQ on the App Store"><img src="Assets/app-store-badge.svg" width="180" height="60" alt="Download on the App Store"></a></p>
+<p class="requirements">Free · Requires macOS 27 · No driver, no subscription</p>
 
-  <!-- ENGINE -->
-  <section id="features">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>No driver. No system changes.</h2>
-        <p>
-          Most Mac equalizers make you install a virtual audio driver and reroute your
-          output device. MacEQ doesn't. It uses Apple's native <code>CATapDescription</code>
-          audio tap API — the same mechanism macOS uses for screen recording audio.
-        </p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <div class="icon">◎</div>
-          <h3>Every app, simultaneously</h3>
-          <p>One EQ for the whole system. Spotify, Apple Music, YouTube, any browser, any app — all processed at once, no per-app setup.</p>
-        </div>
-        <div class="card">
-          <div class="icon g">✓</div>
-          <h3>Nothing installed, nothing broken</h3>
-          <p>No kernel extension, no virtual device in your Sound settings. Toggle it off and your original audio routing returns in real time.</p>
-        </div>
-        <div class="card">
-          <div class="icon p">◌</div>
-          <h3>Bluetooth &amp; AirPods</h3>
-          <p>Full support for AirPods and Bluetooth speakers, not just wired output. A confirmation tone plays on activation so you know it's live.</p>
-        </div>
-        <div class="card">
-          <div class="icon">▾</div>
-          <h3>Lives in your menu bar</h3>
-          <p>Always one click away. Adjust the curve, switch presets, or set system volume without leaving what you're doing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<figure>
+  <img src="Assets/Main%20App.png" width="1664" height="1472" alt="macEQ equalizer showing a live spectrum analyzer and a ten-band EQ curve">
+</figure>
 
-  <!-- EQ -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>A real 10-band parametric EQ</h2>
-        <p>32 Hz to 16 kHz, ±12 dB, with the readouts you need to actually know what you're doing.</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <div class="icon">〜</div>
-          <h3>Live EQ frequency curve</h3>
-          <p>A smooth bezier line drawing your exact EQ shape, redrawn as you drag. Blue fill for boost, purple for cut, with dB grid lines at +12, +6, 0, −6 and −12.</p>
-        </div>
-        <div class="card">
-          <div class="icon g">▮</div>
-          <h3>Live spectrum analyzer</h3>
-          <p>A green overlay showing real-time audio energy per band — drawn separately from your EQ curve, so you can see what the music is doing <em>and</em> what you're doing to it.</p>
-        </div>
-        <div class="card">
-          <div class="icon p">+</div>
-          <h3>Additive quick actions</h3>
-          <ul>
-            <li><strong>Extra Bass</strong> — adds +3/+3/+2/+1 dB on top of your current curve, restores it on tap-off</li>
-            <li><strong>Clarity</strong> — lifts presence and air, also fully reversible</li>
-            <li><strong>Reset EQ</strong> — back to flat</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<p>
+  <strong>macEQ</strong> shapes the sound of <em>every</em> app at once — Spotify, Apple Music, YouTube,
+  Safari, Chrome — with a 10-band EQ, studio stereo processing, and a live spectrum analyzer.
+</p>
 
-  <!-- PRESETS -->
-  <section id="presets">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>13 built-in presets. Unlimited of your own.</h2>
-        <p>Every preset tile shows a live animated mini visualizer when selected — the bars move with the music.</p>
-      </div>
-      <div class="chips" style="margin-bottom:32px">
-        <span class="chip">Bass Boost</span><span class="chip">Deep Bass</span>
-        <span class="chip">Treble Boost</span><span class="chip">Crisp Treble</span>
-        <span class="chip">Flat</span><span class="chip">Music</span>
-        <span class="chip">Movie</span><span class="chip">Gaming</span>
-        <span class="chip">Podcast</span><span class="chip">Night Mode</span>
-        <span class="chip">V-Shape</span><span class="chip">Warm</span>
-        <span class="chip">Orchestra</span>
-      </div>
-      <div class="card">
-        <h3>Save the whole session, not just the curve</h3>
-        <p>
-          Hit <strong style="color:var(--text)">Save Settings</strong> and MacEQ stores your entire configuration under
-          one name — EQ bands, spatial surround, stereo width, crossfeed, channel balance,
-          effects, pitch, volume boost and auto level, together. Your presets appear under
-          <strong style="color:var(--text)">MY PRESETS</strong> at the top of the Presets tab. One tap restores every setting at once.
-        </p>
-      </div>
-    </div>
-  </section>
+<p>
+  Most Mac equalizers make you install a virtual audio driver and reroute your output device.
+  <strong>macEQ</strong> doesn't. It uses Apple's native <code>CATapDescription</code> audio tap API — the same
+  mechanism macOS uses for screen recording audio. Toggle it off and your original audio
+  routing returns in real time.
+</p>
 
-  <!-- SPATIAL + EFFECTS -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Studio processing, not gimmicks</h2>
-        <p>The stereo tools here are the ones mastering engineers actually use.</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <div class="icon p">◑</div>
-          <h3>Stereo Width (M/S)</h3>
-          <p>True Mid-Side processing from 0% mono to 200% super-wide — the same technique used in professional mastering studios, not a fake widener.</p>
-        </div>
-        <div class="card">
-          <div class="icon p">◐</div>
-          <h3>Crossfeed</h3>
-          <p>Blends 30% of each channel into the opposite ear, removing the "sound is inside my skull" effect that makes long headphone sessions tiring. A standard audiophile feature.</p>
-        </div>
-        <div class="card">
-          <div class="icon">⬡</div>
-          <h3>Spatial Surround</h3>
-          <p>Virtual 5-channel surround with an animated speaker diagram — FL, FC, FR, RL, RR — showing sonar pulse waves as the field moves.</p>
-        </div>
-        <div class="card">
-          <div class="icon">◈</div>
-          <h3>Dolby Stereo</h3>
-          <p>Plate reverb processing for cinematic stereo expansion. Pairs well with the Movie preset.</p>
-        </div>
-        <div class="card">
-          <div class="icon g">↕</div>
-          <h3>Auto Level</h3>
-          <p>Software AGC holds every track at consistent loudness. No more diving for the volume key when a loud ad or a badly mastered song hits.</p>
-        </div>
-        <div class="card">
-          <div class="icon g">↑</div>
-          <h3>Volume Boost</h3>
-          <p>Push output to 100–200% <em>beyond</em> the macOS system maximum via the mixer node — for quiet laptop speakers, quiet recordings, and quiet meetings.</p>
-        </div>
-        <div class="card">
-          <div class="icon">☾</div>
-          <h3>Night Mode &amp; Ambience</h3>
-          <p>Night Mode rolls off harsh highs for late listening. Ambience adds natural small-room depth and presence.</p>
-        </div>
-        <div class="card">
-          <div class="icon p">✧</div>
-          <h3>Fidelity &amp; Pitch Shift</h3>
-          <p>Fidelity is a high-shelf boost that restores air and micro-detail. Pitch Shift moves pitch ±12 semitones without touching playback speed.</p>
-        </div>
-        <div class="card">
-          <div class="icon">⇄</div>
-          <h3>Channel Balance</h3>
-          <p>Independent left/right level control — for hearing compensation, or for headphones that simply aren't matched anymore.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2 id="features"><span class="sf-symbol" style="--sf:url('Assets/Symbols/waveform.png')" aria-hidden="true"></span>Features</h2>
+<ul>
+  <li><strong>Every app, simultaneously</strong> — one EQ for the whole system, no per-app setup.</li>
+  <li><strong>No driver, no system changes</strong> — no kernel extension, no virtual device in Sound settings.</li>
+  <li><strong>10-band parametric EQ</strong> — 32 Hz to 16 kHz, ±12 dB, with a live bezier curve as you drag.</li>
+  <li><strong>Live spectrum analyzer</strong> — real-time audio energy per band, drawn separately from your EQ curve.</li>
+  <li><strong>Quick actions</strong> — Extra Bass and Clarity add on top of your current curve and fully reverse on tap-off.</li>
+  <li><strong>Bluetooth &amp; AirPods</strong> — full support, not just wired output.</li>
+  <li><strong>Menu bar app</strong> — adjust the curve, switch presets or set volume without leaving what you're doing.</li>
+</ul>
 
-  <!-- COMPARE -->
-  <section id="compare">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Why MacEQ is above the rest</h2>
-        <p>Everything below works at the same time, across every app, for free.</p>
-      </div>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Capability</th>
-              <th>MacEQ</th>
-              <th>Typical Mac EQ app</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Works across every app at once</td><td class="yes">Yes</td><td class="no">Often per-app or player-only</td></tr>
-            <tr><td>Virtual audio driver required</td><td class="yes">None</td><td class="no">Usually required</td></tr>
-            <tr><td>Subscription</td><td class="yes">Free</td><td class="no">Monthly or paid unlock</td></tr>
-            <tr><td>M/S stereo width (0–200%)</td><td class="yes">Yes</td><td class="no">Rare</td></tr>
-            <tr><td>Crossfeed for headphones</td><td class="yes">Yes</td><td class="no">Rare</td></tr>
-            <tr><td>Live spectrum analyzer</td><td class="yes">Yes</td><td class="no">Rare</td></tr>
-            <tr><td>Auto loudness normalization</td><td class="yes">Yes</td><td class="no">Rare</td></tr>
-            <tr><td>Presets that save the full session</td><td class="yes">Yes</td><td class="no">EQ curve only</td></tr>
-            <tr><td>Volume above the system maximum</td><td class="yes">Up to 200%</td><td class="no">Rare</td></tr>
-            <tr><td>Bluetooth &amp; AirPods</td><td class="yes">Yes</td><td class="no">Varies</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+<h2 id="spatial"><span class="sf-symbol" style="--sf:url('Assets/Symbols/spatial.png')" aria-hidden="true"></span>Spatial and effects</h2>
+<ul>
+  <li><strong>Stereo Width</strong> — true Mid-Side processing from 0% mono to 200% super-wide.</li>
+  <li><strong>Crossfeed</strong> — blends 30% of each channel into the opposite ear, so long headphone sessions stop being tiring.</li>
+  <li><strong>Spatial Surround</strong> — virtual 5-channel surround with an animated speaker diagram.</li>
+  <li><strong>Dolby Stereo</strong> — plate reverb processing for cinematic stereo expansion.</li>
+  <li><strong>Auto Level</strong> — holds every track at consistent loudness, so loud ads stop startling you.</li>
+  <li><strong>Volume Boost</strong> — 100–200% beyond the macOS system maximum.</li>
+  <li><strong>Night Mode &amp; Ambience</strong> — roll off harsh highs, or add natural small-room depth.</li>
+  <li><strong>Fidelity &amp; Pitch Shift</strong> — restore air and micro-detail; move pitch ±12 semitones without changing speed.</li>
+  <li><strong>Channel Balance</strong> — independent left/right level control.</li>
+</ul>
 
-  <!-- DOWNLOAD -->
-  <section id="download" class="final">
-    <div class="wrap">
-      <h2>Turn it on and hear the difference.</h2>
-      <p>Free to download. No account, no trial timer, no driver in your system.</p>
-      <div class="cta-row">
-        <a class="btn" href="#download">Download for Mac</a>
-      </div>
-      <p class="fineprint">macOS 14.4 or later · Apple Silicon &amp; Intel · Twentytwo Software Publishing</p>
-    </div>
-  </section>
+<figure>
+  <img src="Assets/Spatial%20Effect.png" width="1664" height="1472" loading="lazy" alt="macEQ spatial surround control with five virtual speaker positions">
+  <figcaption>Five virtual speaker positions with adjustable intensity.</figcaption>
+</figure>
 
-</main>
+<h2 id="presets"><span class="sf-symbol" style="--sf:url('Assets/Symbols/preset.png')" aria-hidden="true"></span>Presets</h2>
+<p>
+  13 built-in presets, plus unlimited of your own. Each tile shows its EQ shape at a glance
+  and comes alive with the music when selected.
+</p>
+<p class="presets">
+  Bass Boost · Deep Bass · Treble Boost · Crisp Treble · Flat · Music · Movie · Gaming ·
+  Podcast · Night Mode · V-Shape · Warm · Orchestra
+</p>
+<p>
+  A saved preset stores the whole session — EQ, spatial settings, effects, pitch, volume boost
+  and auto level — under one name. One tap restores everything.
+</p>
+
+<figure>
+  <img src="Assets/Presets%20Tab.png" width="1664" height="1526" loading="lazy" alt="macEQ presets tab with saved and built-in sound profiles">
+</figure>
+
+<h2 id="guide"><span class="sf-symbol" style="--sf:url('Assets/Symbols/power.png')" aria-hidden="true"></span>How to use</h2>
+<ol>
+  <li>Open macEQ and enable System EQ from the bottom bar.</li>
+  <li>Use the power button to turn real-time processing on or off.</li>
+  <li>Pick a preset, or shape the 10-band EQ manually.</li>
+  <li>Add Extra Bass or Clarity for a quick tone change.</li>
+  <li>Open Spatial for surround depth, stereo width, crossfeed and balance.</li>
+  <li>Set volume boost, ambience, pitch, Night Mode or auto leveling.</li>
+  <li>Save it all as a user preset.</li>
+</ol>
+
+<p class="download"><a class="badge" href="#" aria-label="Download macEQ on the App Store"><img src="Assets/app-store-badge.svg" width="180" height="60" alt="Download on the App Store"></a></p>
+<p class="requirements">Free · Requires macOS 27</p>
+
+<hr>
 
 <footer>
-  <div class="wrap foot-row">
-    <div>
-      <div class="tagline">Built for Mac. Not for Subscriptions.</div>
-      
-    </div>
-    <div>
-      <a href="https://github.com/totoantonio/maceq-website">GitHub</a>
-    </div>
-  </div>
+  <p>Every app on your Mac, tuned.</p>
+  <p><a href="https://github.com/totoantonio/maceq-website">GitHub</a> · ToTo Antonio</p>
 </footer>
 
 </body>

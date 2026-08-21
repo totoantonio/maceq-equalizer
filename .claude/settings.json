@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -c commit.gpgsign=false commit -q -m 'Redesign site as a clean single-column layout *)"
+    ]
+  }
+}
