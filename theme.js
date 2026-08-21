@@ -7,17 +7,18 @@
   const root = document.documentElement;
   const STORAGE_KEY = 'maceq-theme';
 
-  // --- Apply the saved theme immediately, before anything renders. ---
+  // --- Apply the theme immediately, before anything renders. ---
+  // Light is the default; the system preference is not followed unless the
+  // visitor picks dark themselves.
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+    root.dataset.theme = saved === 'dark' ? 'dark' : 'light';
   } catch {
-    // Private browsing or blocked storage: fall back to the system theme.
+    // Private browsing or blocked storage: still default to light.
+    root.dataset.theme = 'light';
   }
 
-  const currentTheme = () =>
-    root.dataset.theme ||
-    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const currentTheme = () => root.dataset.theme || 'light';
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 

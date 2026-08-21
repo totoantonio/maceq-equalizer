@@ -129,6 +129,42 @@ nav a {
 :root[data-theme="light"] .theme-toggle .theme-sun { display: none; }
 :root[data-theme="light"] .theme-toggle .theme-moon { display: inline-block; }
 
+/* ---------- "SOON" overlay on the App Store badge ---------- */
+
+.badge-soon {
+  position: relative;
+  cursor: default;
+}
+
+.badge-soon img {
+  opacity: .38;
+  filter: grayscale(1);
+}
+
+.badge-soon::after {
+  content: attr(data-soon);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-indent: .18em;
+  line-height: 1;
+}
+
+.badge-soon:hover { opacity: 1; }
+
+.copyright {
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: .75;
+}
+
 /* ---------- Scroll reveal ---------- */
 
 .reveal {
