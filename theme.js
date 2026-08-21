@@ -64,30 +64,5 @@
 
       targets.forEach((el) => observer.observe(el));
     }
-
-    // --- Hero badge veil: sharpens once the visitor scrolls ---
-    const veiled = document.querySelector('.badge-veil');
-    const hint = document.querySelector('.scroll-hint');
-
-    if (veiled) {
-      const unveil = () => {
-        veiled.classList.add('revealed');
-        if (hint) hint.classList.add('hidden');
-      };
-
-      if (reduceMotion) {
-        unveil();
-      } else {
-        const onScroll = () => {
-          if (window.scrollY > 90) {
-            unveil();
-            window.removeEventListener('scroll', onScroll);
-          }
-        };
-
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll(); // Handle a reload that restores a scrolled position.
-      }
-    }
   });
 })();

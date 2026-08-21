@@ -101,48 +101,12 @@ figure.reveal.visible {
   transform: none;
 }
 
-/* ---------- Hero badge veil ---------- */
+/* ---------- Hero spacing: keep the badge above the fold ---------- */
 
-.badge-veil {
-  filter: blur(7px);
-  opacity: .45;
-  transform: scale(.97);
-  transition: filter .8s ease, opacity .8s ease, transform .8s ease;
-  pointer-events: none;
-}
-
-.badge-veil.revealed {
-  filter: none;
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
-}
-
-.scroll-hint {
-  margin: 14px 0 0;
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
-  opacity: 1;
-  transition: opacity .5s ease;
-}
-
-.scroll-hint.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scroll-hint .sf-symbol {
-  width: 13px;
-  height: 13px;
-  vertical-align: -1px;
-  margin-left: 5px;
-  animation: nudge 1.8s ease-in-out infinite;
-}
-
-@keyframes nudge {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(3px); }
+@media (max-height: 720px), (max-width: 520px) {
+  nav { margin-bottom: 34px; }
+  .app-icon { width: 104px; height: 104px; margin-bottom: 16px; }
+  .download { margin-top: 24px; }
 }
 
 /* ---------- Respect reduced motion ---------- */
@@ -154,16 +118,6 @@ figure.reveal.visible {
     transform: none;
     transition: none;
   }
-
-  .badge-veil {
-    filter: none;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-  }
-
-  .scroll-hint { display: none; }
-  .scroll-hint .sf-symbol { animation: none; }
   .theme-toggle:hover { transform: none; }
   body { transition: none; }
 }
