@@ -79,6 +79,14 @@ nav a {
   flex: 0 0 auto;
 }
 
+/* On phones, drop the two sections that are easiest to reach by scrolling. */
+@media (max-width: 600px) {
+  nav a[href*="#presets"],
+  nav a[href*="#guide"] {
+    display: none;
+  }
+}
+
 /* ---------- Theme toggle ---------- */
 
 .theme-toggle {
