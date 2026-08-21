@@ -136,28 +136,22 @@ nav a {
   cursor: default;
 }
 
-.badge-soon img {
-  opacity: .38;
-  filter: grayscale(1);
-}
-
+/* Small pill pinned to the badge's top-right corner. */
 .badge-soon::after {
   content: attr(data-soon);
   position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  color: var(--text);
-  font-size: 15px;
+  top: -7px;
+  right: -9px;
+  padding: 3px 9px;
+  border-radius: 980px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: .18em;
-  text-indent: .18em;
-  line-height: 1;
+  letter-spacing: .09em;
+  line-height: 1.5;
+  white-space: nowrap;
 }
-
-.badge-soon:hover { opacity: 1; }
 
 .copyright {
   margin-top: 10px;
