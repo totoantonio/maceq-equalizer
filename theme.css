@@ -10,6 +10,28 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* ---------- Links: inherit the text colour, never underlined ---------- */
+
+a,
+a:hover,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Inline links inside body copy stay findable through weight, not colour. */
+p a,
+li a {
+  font-weight: 600;
+  transition: opacity .2s ease;
+}
+
+p a:hover,
+li a:hover,
+footer a:hover {
+  opacity: .6;
+}
+
 /* ---------- Manual theme override ---------- */
 
 :root[data-theme="light"] {
