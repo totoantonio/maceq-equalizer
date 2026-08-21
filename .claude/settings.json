@@ -12,7 +12,9 @@
       "Bash(sips -g pixelWidth -g pixelHeight og-image.png apple-touch-icon.png)",
       "Bash(python3 -c ' *)",
       "Bash(python3 -c \"import xml.dom.minidom as m; m.parse\\('sitemap.xml'\\); print\\('sitemap ok'\\)\")",
-      "Bash(git -c commit.gpgsign=false commit -q -m 'Add SEO metadata, structured data, and root favicons *)"
+      "Bash(git -c commit.gpgsign=false commit -q -m 'Add SEO metadata, structured data, and root favicons *)",
+      "Bash(python3 -)",
+      "Bash(git -c commit.gpgsign=false commit -q -m \"Price macEQ at USD 14.99 one-time\")"
     ]
   }
 }

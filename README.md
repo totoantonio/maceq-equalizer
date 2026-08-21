@@ -1,10 +1,10 @@
-# MacEQ
+# macEQ
 
-**System-wide audio EQ and enhancement for macOS. Free. No driver. No subscription.**
+**System-wide audio EQ and enhancement for macOS. USD 14.99, one-time. No driver. No subscription.**
 
 **Requires macOS 27. Earlier versions of macOS are not supported.**
 
-MacEQ intercepts audio from every app on your Mac at once — Spotify, Apple Music, YouTube, Safari, Chrome — and runs it through a 10-band parametric equalizer with professional stereo processing, a live spectrum analyzer, and loudness normalization. It uses Apple's native audio tap API, so nothing is installed into your system and nothing is modified.
+macEQ intercepts audio from every app on your Mac at once — Spotify, Apple Music, YouTube, Safari, Chrome — and runs it through a 10-band parametric equalizer with professional stereo processing, a live spectrum analyzer, and loudness normalization. It uses Apple's native audio tap API, so nothing is installed into your system and nothing is modified.
 
 
 
@@ -76,13 +76,13 @@ Bass Boost · Deep Bass · Treble Boost · Crisp Treble · Flat · Music · Movi
 
 ## The Short Pitch
 
-MacEQ is the only free, no-driver, no-subscription macOS audio enhancer that combines professional M/S stereo processing, crossfeed headphone optimization, a live spectrum analyzer, auto loudness normalization, and user-saveable full-session presets — all working simultaneously across every app on your Mac.
+macEQ is the only free, no-driver, no-subscription macOS audio enhancer that combines professional M/S stereo processing, crossfeed headphone optimization, a live spectrum analyzer, auto loudness normalization, and user-saveable full-session presets — all working simultaneously across every app on your Mac.
 
 ---
 
 ## This Repository
 
-This repo holds the **MacEQ website** — the landing page and marketing site. The app itself is a native macOS app built in Xcode.
+This repo holds the **macEQ website** — the landing page and marketing site. The app itself is a native macOS app built in Xcode.
 
 ---
 

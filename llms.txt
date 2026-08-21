@@ -1,6 +1,6 @@
 # macEQ
 
-> macEQ is a free system-wide audio equalizer for macOS 27. It shapes the sound of every app at once — Spotify, Apple Music, YouTube, Safari, Chrome — with a 10-band EQ, studio stereo processing, and a live spectrum analyzer. It installs no virtual audio driver and requires no subscription.
+> macEQ is a system-wide audio equalizer for macOS 27, sold as a one-time USD 14.99 purchase with no subscription. It shapes the sound of every app at once — Spotify, Apple Music, YouTube, Safari, Chrome — with a 10-band EQ, studio stereo processing, and a live spectrum analyzer. It installs no virtual audio driver.
 
 macEQ is developed by totoantonio. Home page: https://maceq-equalizer.pages.dev/
 
@@ -8,7 +8,7 @@ macEQ is developed by totoantonio. Home page: https://maceq-equalizer.pages.dev/
 
 - **No virtual audio driver.** macEQ uses Apple's native `CATapDescription` audio tap API — the same mechanism macOS uses for screen recording audio. Nothing is installed into the system, no kernel extension, and no virtual device appears in Sound settings. Turning it off restores the original audio routing in real time.
 - **Every app at once.** One system-wide EQ rather than per-app or player-only processing.
-- **Free.** No subscription, no trial timer, no account.
+- **One-time USD 14.99.** No subscription, no recurring fee, no account.
 - **macOS 27 only.** Designed exclusively for Mac, including Bluetooth speakers and AirPods.
 
 ## Features
