@@ -76,7 +76,7 @@ Bass Boost · Deep Bass · Treble Boost · Crisp Treble · Flat · Music · Movi
 
 ## The Short Pitch
 
-macEQ is the only free, no-driver, no-subscription macOS audio enhancer that combines professional M/S stereo processing, crossfeed headphone optimization, a live spectrum analyzer, auto loudness normalization, and user-saveable full-session presets — all working simultaneously across every app on your Mac.
+macEQ is free for testing, No-driver, No-Subscription macOS audio enhancer that combines professional M/S stereo processing, crossfeed headphone optimization, a live spectrum analyzer, auto loudness normalization, and user-saveable full-session presets — all working simultaneously across every app on your Mac.
 
 ---
 
@@ -86,4 +86,4 @@ This repo holds the **macEQ website** — the landing page and marketing site. T
 
 ---
 
-**Built for Mac. Not for Subscriptions.**
+**System-wide audio equalizer for macOS**
