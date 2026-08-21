@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -c commit.gpgsign=false commit -q -m 'Redesign site as a clean single-column layout *)"
+      "Bash(git -c commit.gpgsign=false commit -q -m 'Redesign site as a clean single-column layout *)",
+      "Bash(gh api *)",
+      "mcp__claude_ai_Cloudflare_Developer_Platform__workers_list",
+      "Bash(git -c commit.gpgsign=false commit -q -m \"Wire up support form endpoint\")",
+      "Bash(curl -s \"https://totoantonio.github.io/maceq-equalizer/support.html\")",
+      "Bash(sips -Z 180 Assets/Icon-macOS-Default-1024@1x.png --out apple-touch-icon.png)",
+      "Bash(sips -Z 1200 \"Assets/Main App.png\" --out og-image.png)",
+      "Bash(sips -p 630 1200 --padColor 1C1C1E og-image.png --out og-image.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight og-image.png apple-touch-icon.png)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import xml.dom.minidom as m; m.parse\\('sitemap.xml'\\); print\\('sitemap ok'\\)\")",
+      "Bash(git -c commit.gpgsign=false commit -q -m 'Add SEO metadata, structured data, and root favicons *)"
     ]
   }
 }

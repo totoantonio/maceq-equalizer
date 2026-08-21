@@ -9,7 +9,75 @@
 <meta property="og:title" content="Support — macEQ">
 <meta property="og:description" content="Setup guide, troubleshooting steps, and direct support for macEQ.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" sizes="128x128" href="Assets/favicon.png">
+<meta property="og:url" content="https://maceq-equalizer.pages.dev/support.html">
+<meta property="og:site_name" content="macEQ">
+<meta property="og:image" content="https://maceq-equalizer.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maceq-equalizer.pages.dev/og-image.png">
+<link rel="canonical" href="https://maceq-equalizer.pages.dev/support.html">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#1C1C1E">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "macEQ has no effect on the sound at all. How do I fix it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check that System EQ is on and the power button is lit. Open System Settings, then Privacy & Security, then Screen & System Audio Recording, and confirm macEQ is listed and enabled. If you just granted the permission, quit macEQ completely with Command-Q and reopen it, because macOS only hands the permission to a fresh launch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does macEQ work in one app but not another?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A few apps hold an exclusive audio session or output their own hardware stream, which bypasses the system audio tap. Quit that app, make sure macEQ is already running, then reopen it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Audio cuts out when I switch to AirPods or a Bluetooth speaker.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Toggle System EQ off, switch the output device, then toggle it back on so macEQ rebinds to the new device. If the AirPods entered call or headset mode, end the call or quit the app using the microphone, then reconnect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the audio crackling or distorting in macEQ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Turn Volume Boost down toward 100 percent, since boosting an already loud track will clip. Pull back any EQ bands sitting near plus 12 dB, turn off Auto Level temporarily, and press Reset EQ for a flat curve before rebuilding in smaller steps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does macEQ require a virtual audio driver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. macEQ uses Apple's native CATapDescription audio tap API, so no kernel extension or virtual audio device is installed and no output routing is changed. Turning it off restores your original audio routing in real time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my macEQ settings vanish?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The EQ curve, spatial settings and effects only persist as a group when saved as a user preset. Tap Save Settings and name it, and it appears under My Presets to restore in one tap."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
   :root {
