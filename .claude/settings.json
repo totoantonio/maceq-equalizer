@@ -14,7 +14,9 @@
       "Bash(python3 -c \"import xml.dom.minidom as m; m.parse\\('sitemap.xml'\\); print\\('sitemap ok'\\)\")",
       "Bash(git -c commit.gpgsign=false commit -q -m 'Add SEO metadata, structured data, and root favicons *)",
       "Bash(python3 -)",
-      "Bash(git -c commit.gpgsign=false commit -q -m \"Price macEQ at USD 14.99 one-time\")"
+      "Bash(git -c commit.gpgsign=false commit -q -m \"Price macEQ at USD 14.99 one-time\")",
+      "Bash(curl -s \"https://maceq-equalizer.pages.dev/\")",
+      "Bash(git -c commit.gpgsign=false commit -q -m \"Adjust home page copy capitalization\")"
     ]
   }
 }
