@@ -3,10 +3,10 @@
    Loaded after each page's inline <style>, so it wins on conflict.
    --------------------------------------------------------------- */
 
-/* Apple devices resolve -apple-system first and never reach Inter.
-   Everything else falls through to the web font. */
+/* Apple devices resolve -apple-system first and never reach the web font.
+   Everything else falls through to Google Sans. */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Google Sans",
     "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
