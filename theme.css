@@ -58,11 +58,33 @@ body {
   transition: background-color .25s ease, color .25s ease;
 }
 
+/* ---------- Nav: always a single line ---------- */
+
+nav {
+  flex-wrap: nowrap;
+  align-items: center;
+  /* Gap and type shrink with the viewport before anything can wrap. */
+  gap: clamp(11px, 3.1vw, 24px);
+  font-size: clamp(12.5px, 3.1vw, 15px);
+  /* Last resort on very narrow screens: scroll sideways, never stack. */
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+nav::-webkit-scrollbar { display: none; }
+
+nav a {
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
 /* ---------- Theme toggle ---------- */
 
 .theme-toggle {
   width: 32px;
   height: 32px;
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
   padding: 0;
