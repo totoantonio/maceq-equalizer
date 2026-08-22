@@ -10,43 +10,60 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* ---------- Type scale: tracking tightens as type grows ---------- */
+/* ---------- Type scale ----------
+   Values taken from Apple Support's own stylesheet (app-ac.css):
+   body 17/1.4706/-.022em · h1 48/1.0835/-.003em · h2 40/1.1/0 · h3 32/1.125/+.004em
+   Tracking loosens as type shrinks, and turns positive below 40px.
+   Sizes scale down on small screens, as Apple's own breakpoints do.        */
+
+body {
+  font-size: 17px;
+  line-height: 1.4706;
+  letter-spacing: -.022em;
+}
 
 h1 {
-  font-size: clamp(38px, 6.4vw, 54px);
-  letter-spacing: -.035em;
-  line-height: 1.06;
+  font-size: clamp(34px, 6.2vw, 48px);
+  line-height: 1.0835;
+  letter-spacing: -.003em;
+  font-weight: 600;
 }
 
 h2 {
-  font-size: clamp(24px, 3.2vw, 30px);
-  letter-spacing: -.022em;
-  line-height: 1.16;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: 0em;
+  font-weight: 600;
 }
 
 h3 {
-  letter-spacing: -.012em;
+  font-size: clamp(24px, 3.6vw, 32px);
+  line-height: 1.125;
+  letter-spacing: .004em;
+  font-weight: 600;
 }
 
-/* Small print reads better with a little air. */
+/* Apple's 21px intro size, with its matching tracking. */
+.tagline,
+.lede {
+  font-size: clamp(19px, 2.5vw, 21px);
+  line-height: 1.381;
+  letter-spacing: .011em;
+}
+
+/* Small print: Apple's 14px caption tracking. */
 .requirements,
 .copyright,
 figcaption,
-footer {
-  letter-spacing: .012em;
+footer,
+nav {
+  letter-spacing: -.016em;
 }
 
-/* The first paragraph after the hero carries more weight than body copy. */
-.tagline {
-  font-size: clamp(19px, 2.4vw, 23px);
-  letter-spacing: -.012em;
-  line-height: 1.4;
-}
-
-.lede {
-  font-size: clamp(19px, 2.4vw, 22px);
-  letter-spacing: -.012em;
-  line-height: 1.45;
+/* Headline symbols scale with the larger headings. */
+h2 .sf-symbol {
+  width: clamp(26px, 4.4vw, 35px);
+  height: clamp(26px, 4.4vw, 35px);
 }
 
 /* ---------- Vertical rhythm: wide between topics, tight within ---------- */
