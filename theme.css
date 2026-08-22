@@ -62,8 +62,8 @@ nav {
 
 /* Headline symbols scale with the larger headings. */
 h2 .sf-symbol {
-  width: clamp(26px, 4.4vw, 35px);
-  height: clamp(26px, 4.4vw, 35px);
+  width: clamp(30px, 4.8vw, 40px);
+  height: clamp(30px, 4.8vw, 40px);
 }
 
 /* ---------- Vertical rhythm: wide between topics, tight within ---------- */
