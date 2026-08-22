@@ -10,6 +10,84 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* ---------- Type scale: tracking tightens as type grows ---------- */
+
+h1 {
+  font-size: clamp(38px, 6.4vw, 54px);
+  letter-spacing: -.035em;
+  line-height: 1.06;
+}
+
+h2 {
+  font-size: clamp(24px, 3.2vw, 30px);
+  letter-spacing: -.022em;
+  line-height: 1.16;
+}
+
+h3 {
+  letter-spacing: -.012em;
+}
+
+/* Small print reads better with a little air. */
+.requirements,
+.copyright,
+figcaption,
+footer {
+  letter-spacing: .012em;
+}
+
+/* The first paragraph after the hero carries more weight than body copy. */
+.tagline {
+  font-size: clamp(19px, 2.4vw, 23px);
+  letter-spacing: -.012em;
+  line-height: 1.4;
+}
+
+.lede {
+  font-size: clamp(19px, 2.4vw, 22px);
+  letter-spacing: -.012em;
+  line-height: 1.45;
+}
+
+/* ---------- Vertical rhythm: wide between topics, tight within ---------- */
+
+h2 {
+  margin-top: clamp(64px, 9vw, 96px);
+  margin-bottom: 14px;
+  /* A hairline gives structure without adding an object. */
+  padding-top: clamp(30px, 4vw, 44px);
+  border-top: 1px solid var(--line);
+}
+
+/* The first heading on a page needs no rule above it. */
+main > h2:first-of-type,
+h1 + h2 {
+  border-top: 0;
+  padding-top: 0;
+}
+
+h3 {
+  margin-top: 34px;
+  margin-bottom: 6px;
+}
+
+figure {
+  margin-top: clamp(40px, 6vw, 60px);
+  margin-bottom: clamp(40px, 6vw, 60px);
+}
+
+/* ---------- Hero: a more confident app icon ---------- */
+
+.app-icon {
+  width: 168px;
+  height: 168px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 520px) {
+  .app-icon { width: 132px; height: 132px; margin-bottom: 20px; }
+}
+
 /* ---------- Links: inherit the text colour, never underlined ---------- */
 
 a,
@@ -163,9 +241,10 @@ nav a {
 
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .7s cubic-bezier(.22, .61, .36, 1),
-              transform .7s cubic-bezier(.22, .61, .36, 1);
+  transform: translateY(18px);
+  /* Apple's motion: leaves quickly, settles slowly. */
+  transition: opacity .5s cubic-bezier(.28, .11, .32, 1),
+              transform .5s cubic-bezier(.28, .11, .32, 1);
   will-change: opacity, transform;
 }
 
@@ -176,7 +255,7 @@ nav a {
 
 /* Screenshots get a slightly larger, slower entrance. */
 figure.reveal {
-  transform: translateY(34px) scale(.985);
+  transform: translateY(26px) scale(.99);
 }
 
 figure.reveal.visible {
@@ -187,7 +266,7 @@ figure.reveal.visible {
 
 @media (max-height: 720px), (max-width: 520px) {
   nav { margin-bottom: 34px; }
-  .app-icon { width: 104px; height: 104px; margin-bottom: 16px; }
+  .app-icon { width: 132px; height: 132px; margin-bottom: 20px; }
   .download { margin-top: 24px; }
 }
 
