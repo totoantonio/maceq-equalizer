@@ -8,3 +8,6 @@ build/
 
 # Claude Code local config
 .claude/
+
+# Uncropped screenshot backups
+Assets/original/
