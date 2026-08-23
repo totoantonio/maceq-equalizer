@@ -99,16 +99,11 @@ figcaption {
   margin-top: 14px;
 }
 
-.main-figure figcaption,
-.spatial-figure figcaption {
-  margin-top: 14px;
-}
-
-.main-figure img,
 .spatial-figure img {
-  aspect-ratio: 1946 / 1328;
-  object-fit: cover;
-  object-position: top;
+  width: 113.1%;
+  max-width: none;
+  height: auto;
+  margin-left: -6.55%;
 }
 
 /* ---------- Hero: a more confident app icon ---------- */
