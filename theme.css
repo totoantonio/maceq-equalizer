@@ -397,6 +397,7 @@ figure.reveal.visible {
 @media (max-width: 520px) {
   .download-options {
     gap: 8px;
+    align-items: stretch;
   }
 
   .download-options > * {
@@ -404,14 +405,22 @@ figure.reveal.visible {
     min-width: 0;
   }
 
+  /* Both badges share the App Store artwork's 3:1 ratio so their
+     boxes are exactly the same size at any phone width. */
+  .download-options .badge {
+    display: flex;
+    aspect-ratio: 3 / 1;
+  }
+
   .download-options .badge img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
   }
 
   .download-options .lemon-badge {
     height: auto;
-    min-height: 55px;
+    aspect-ratio: 3 / 1;
     padding: 0 6px;
     gap: 5px;
   }
