@@ -3,6 +3,10 @@
    Loaded after each page's inline <style>, so it wins on conflict.
    --------------------------------------------------------------- */
 
+html {
+  overflow-x: hidden;
+}
+
 /* Apple devices resolve -apple-system first and never reach the web font.
    Everything else falls through to Google Sans. */
 body {
@@ -97,13 +101,6 @@ figure {
    width as the body text. The caption sits right under the window. */
 figcaption {
   margin-top: 14px;
-}
-
-.spatial-figure img {
-  width: 113.1%;
-  max-width: none;
-  height: auto;
-  margin-left: -6.55%;
 }
 
 /* ---------- Hero: a more confident app icon ---------- */
