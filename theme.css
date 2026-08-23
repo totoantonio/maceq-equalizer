@@ -108,11 +108,51 @@ figcaption {
 .app-icon {
   width: 168px;
   height: 168px;
-  margin-bottom: 28px;
 }
 
+.logo-lockup {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 28px;
+}
+
+.logo-lockup .app-icon {
+  margin: 0;
+}
+
+.platform-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 0;
+  gap: 7px;
+  margin: 0;
+  padding: 3px 9px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 999px;
+  background: #1D1D1F;
+  color: #F5F5F7;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .09em;
+  line-height: 1.5;
+  transition: opacity .2s ease;
+}
+
+.logo-lockup .platform-badge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.platform-badge:hover { opacity: .85; }
+
 @media (max-width: 520px) {
-  .app-icon { width: 132px; height: 132px; margin-bottom: 20px; }
+  .app-icon { width: 132px; height: 132px; }
+  .logo-lockup { margin-bottom: 20px; }
 }
 
 /* ---------- Links: inherit the text colour, never underlined ---------- */
@@ -301,6 +341,63 @@ figure.reveal.visible {
 
 .download.guide-download {
   margin-top: 48px;
+}
+
+.download-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.lemon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 180px;
+  height: 60px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: #FFC233;
+  color: #1D1D1F;
+  text-align: center;
+  transition: opacity .2s ease;
+}
+
+.lemon-badge:hover { opacity: .85; }
+
+.lemon-badge img {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.lemon-badge-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.lemon-badge-copy > span {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+
+.lemon-badge-copy strong {
+  margin-top: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+@media (max-width: 520px) {
+  .download-options {
+    flex-direction: column;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
