@@ -99,6 +99,18 @@ figcaption {
   margin-top: 14px;
 }
 
+.main-figure figcaption,
+.spatial-figure figcaption {
+  margin-top: 14px;
+}
+
+.main-figure img,
+.spatial-figure img {
+  aspect-ratio: 1946 / 1328;
+  object-fit: cover;
+  object-position: top;
+}
+
 /* ---------- Hero: a more confident app icon ---------- */
 
 .app-icon {
@@ -294,6 +306,10 @@ figure.reveal.visible {
 }
 
 /* ---------- Respect reduced motion ---------- */
+
+.download.guide-download {
+  margin-top: 48px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
