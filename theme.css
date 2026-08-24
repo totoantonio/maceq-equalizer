@@ -298,6 +298,20 @@ nav a {
   white-space: nowrap;
 }
 
+/* Same pill, but for a badge that actually links somewhere. */
+.badge-live {
+  cursor: pointer;
+}
+
+.badge-live::after {
+  background: #34C759;
+}
+
+:root[data-theme="dark"] .badge-live::after {
+  background: #30D158;
+  color: #0B1A0F;
+}
+
 .copyright {
   margin-top: 10px;
   font-size: 13px;
