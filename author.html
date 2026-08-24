@@ -99,9 +99,20 @@
 
   .author-nav {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
     max-width: 868px;
     margin: 0 auto 96px;
+  }
+
+  .author-home {
+    color: var(--page-soft);
+    font-size: 15px;
+    text-decoration: none;
+  }
+
+  .author-home:hover {
+    color: var(--page-text);
   }
 
   .author-intro {
@@ -154,18 +165,23 @@
   }
 
   .author-work li {
+    position: relative;
+    top: 0;
     margin: 0;
     padding: 0;
     border: 0;
     border-radius: 18px;
     background: var(--card-bg);
     box-shadow: 0 3px 10px var(--card-shadow);
-    transition: box-shadow .2s ease, transform .2s ease;
+    /* `top` instead of `transform`: a transform promotes the card to its own
+       layer and re-rasterizes the text at fractional pixels, which reads as
+       blur on hover. */
+    transition: box-shadow .2s ease, top .2s ease;
   }
 
   .author-work li:hover {
+    top: -2px;
     box-shadow: 0 8px 22px var(--card-shadow-hover);
-    transform: translateY(-2px);
   }
 
   .author-work a {
@@ -177,7 +193,14 @@
     height: 100%;
     padding: 22px;
     color: var(--page-text);
+    font-weight: 400;
     text-decoration: none;
+  }
+
+  /* theme.css fades any `li a` to .6 on hover — that washes the whole card
+     out. The card lifts instead. */
+  .author-work a:hover {
+    opacity: 1;
   }
 
   .work-logo {
@@ -195,10 +218,16 @@
   }
 
   .work-status {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     width: fit-content;
+    /* auto pushes it to the card floor; the description's margin keeps a
+       minimum gap when there is no slack to take. */
     margin-top: auto;
     padding: 4px 9px;
+    /* Transparent border keeps every pill the same height as the outlined one. */
+    border: 1px solid transparent;
     border-radius: 999px;
     background: var(--pill-bg);
     color: var(--pill-text);
@@ -207,12 +236,45 @@
     letter-spacing: .02em;
   }
 
+  /* Two pills sit side by side; the row takes the auto margin instead. */
+  .work-status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+  }
+
+  .work-status-row .work-status {
+    margin-top: 0;
+  }
+
+  .work-status-lemon {
+    padding: 4px 10px 4px 5px;
+    background: #FFC233;
+    color: #1D1D1F;
+  }
+
+  /* Not shipped there yet — reads as inactive next to the live one. */
+  .work-status-pending {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--pill-text);
+    opacity: .65;
+  }
+
+  .work-status img {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+  }
+
   .author-work strong {
     font-size: 20px;
     font-weight: 600;
   }
 
-  .work-copy > span {
+  .work-copy > span:not(.work-status):not(.work-status-row) {
+    margin-bottom: 12px;
     color: var(--card-text);
     font-size: 14px;
     font-weight: 400;
@@ -246,13 +308,14 @@
     .author-work a { grid-template-columns: 72px 1fr; align-items: flex-start; gap: 16px; min-height: 0; padding: 22px; }
     .work-logo { width: 72px; height: 72px; border-radius: 16px; }
     .author-work strong { font-size: 22px; }
-    .work-copy > span { display: block; margin-top: 5px; font-size: 16px; text-align: left; }
+    .work-copy > span:not(.work-status):not(.work-status-row) { display: block; margin-top: 5px; font-size: 16px; text-align: left; }
   }
 </style>
 </head>
 <body class="author-page">
 
 <div class="author-nav">
+  <a class="author-home" href="index.html">macEQ</a>
   <button class="theme-toggle" type="button" aria-label="Switch appearance" title="Change appearance">
     <span class="sf-symbol theme-sun" style="--sf:url('Assets/Symbols/sun.max.png')" aria-hidden="true"></span>
     <span class="sf-symbol theme-moon" style="--sf:url('Assets/Symbols/moon.png')" aria-hidden="true"></span>
@@ -269,7 +332,7 @@
   <section class="author-section" aria-labelledby="selected-work">
     <h2 id="selected-work">Selected work</h2>
     <ul class="author-work">
-      <li><a href="index.html"><img class="work-logo" src="Assets/Icon-macOS-Default-1024@1x.png" width="52" height="52" alt="macEQ app icon"><span class="work-copy"><strong>macEQ</strong><span>System-wide audio equalizer for macOS. One EQ for every app, with spatial effects and presets.</span><span class="work-status">Free Trial</span></span></a></li>
+      <li><a href="index.html"><img class="work-logo" src="Assets/Icon-macOS-Default-1024@1x.png" width="52" height="52" alt="macEQ app icon"><span class="work-copy"><strong>macEQ</strong><span>System-wide audio equalizer for macOS. One EQ for every app, with spatial effects and presets.</span><span class="work-status-row"><span class="work-status work-status-lemon"><img src="Assets/lemon-squeezy-mark.svg" width="14" height="14" alt="">Lemon Squeezy</span><span class="work-status work-status-pending">App Store · Soon</span></span></span></a></li>
       <li><a href="#"><img class="work-logo" src="Assets/keyboards-mark.svg" width="52" height="52" alt="KeyboardS app icon"><span class="work-copy"><strong>KeyboardS</strong><span>A fast lookup for Mac keyboard shortcuts. Press ⌘K, find the one you want, get back to work.</span><span class="work-status">Free</span></span></a></li>
     </ul>
   </section>
