@@ -262,7 +262,9 @@
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap"></noscript>
 <link rel="stylesheet" href="theme.css">
 <script src="theme.js"></script>
 </head>
@@ -286,7 +288,7 @@
   <div class="platform-badge" aria-label="Requires macOS 27">
     <span>macOS 27</span>
   </div>
-  <img class="app-icon" src="Assets/Icon-macOS-Default-1024@1x.png" width="128" height="128" alt="macEQ app icon">
+  <img class="app-icon" src="Assets/optimized/maceq-icon-256.webp" srcset="Assets/optimized/maceq-icon-256.webp 256w, Assets/optimized/maceq-icon-384.webp 384w" sizes="(max-width: 520px) 132px, 168px" width="128" height="128" fetchpriority="high" alt="macEQ app icon">
 </div>
 
 <h1>macEQ</h1>
@@ -305,7 +307,7 @@
 <p class="requirements">Free to try · Requires macOS 27 · No Driver · No Subscription</p>
 
 <figure class="reveal main-figure">
-  <img src="Assets/Main%20App.png" width="1600" height="1208" alt="macEQ equalizer showing a live spectrum analyzer and a ten-band EQ curve">
+  <img src="Assets/optimized/maceq-main-640.webp" srcset="Assets/optimized/maceq-main-640.webp 640w, Assets/optimized/maceq-main-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="1600" height="1208" fetchpriority="high" alt="macEQ equalizer showing a live spectrum analyzer and a ten-band EQ curve">
   <figcaption>The ten-band equalizer, with the live curve and spectrum analyzer.</figcaption>
 </figure>
 
@@ -346,12 +348,12 @@
 </ul>
 
 <figure class="reveal spatial-figure">
-  <img src="Assets/Spatial%20Effect.png" width="1946" height="1474" loading="lazy" alt="macEQ spatial effects controls with stereo width, crossfeed, and surround">
+  <img src="Assets/optimized/maceq-spatial-640.webp" srcset="Assets/optimized/maceq-spatial-640.webp 640w, Assets/optimized/maceq-spatial-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="1946" height="1474" loading="lazy" decoding="async" alt="macEQ spatial effects controls with stereo width, crossfeed, and surround">
   <figcaption>Spatial effects controls for stereo width, crossfeed, and surround.</figcaption>
 </figure>
 
 <figure class="reveal spatial-figure">
-  <img src="Assets/Spatial%20Effect%202.png" width="1946" height="1474" loading="lazy" alt="macEQ spatial surround control with five virtual speaker positions">
+  <img src="Assets/optimized/maceq-surround-640.webp" srcset="Assets/optimized/maceq-surround-640.webp 640w, Assets/optimized/maceq-surround-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="1946" height="1474" loading="lazy" decoding="async" alt="macEQ spatial surround control with five virtual speaker positions">
   <figcaption>Five virtual speaker positions with adjustable intensity.</figcaption>
 </figure>
 
@@ -370,13 +372,13 @@
 </p>
 
 <figure class="reveal">
-  <img src="Assets/Presets%20Tab.png?v=2" width="1664" height="1526" loading="lazy" alt="macEQ presets tab with saved and built-in sound profiles">
+  <img src="Assets/optimized/maceq-presets-640.webp" srcset="Assets/optimized/maceq-presets-640.webp 640w, Assets/optimized/maceq-presets-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="1600" height="1244" loading="lazy" decoding="async" alt="macEQ presets tab with saved and built-in sound profiles">
   <figcaption>Built-in and personal presets, all in one place.</figcaption>
 </figure>
 
 <h2 class="reveal"><span class="sf-symbol" style="--sf:url('Assets/Symbols/shield.png')" aria-hidden="true"></span>Advance Features</h2>
 <figure class="reveal">
-  <img src="Assets/Advanced%20Tab.png" width="1600" height="1244" loading="lazy" alt="macEQ advanced settings with import, export, AutoEq, low CPU mode, and spectrum analyzer controls">
+  <img src="Assets/optimized/maceq-advanced-640.webp" srcset="Assets/optimized/maceq-advanced-640.webp 640w, Assets/optimized/maceq-advanced-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="1600" height="1244" loading="lazy" decoding="async" alt="macEQ advanced settings with import, export, AutoEq, low CPU mode, and spectrum analyzer controls">
   <figcaption>Advanced controls for settings portability, headphone correction, and efficient processing.</figcaption>
 </figure>
 

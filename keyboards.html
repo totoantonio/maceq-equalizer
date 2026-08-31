@@ -263,7 +263,9 @@
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap"></noscript>
 <link rel="stylesheet" href="theme.css">
 <script src="theme.js"></script>
 </head>
@@ -286,7 +288,7 @@
   <div class="platform-badge" aria-label="Requires macOS">
     <span>macOS</span>
   </div>
-  <img class="app-icon" src="Assets/Keyboard-Default-1024@1x.png" width="128" height="128" alt="KeyboardS app icon">
+  <img class="app-icon" src="Assets/optimized/keyboards-icon-256.webp" srcset="Assets/optimized/keyboards-icon-256.webp 256w, Assets/optimized/keyboards-icon-384.webp 384w" sizes="(max-width: 520px) 132px, 168px" width="128" height="128" fetchpriority="high" alt="KeyboardS app icon">
 </div>
 
 <h1>KeyboardS</h1>
@@ -304,7 +306,7 @@
 <p class="requirements">Requires macOS · No Account · No Subscription · Works Offline</p>
 
 <figure class="reveal main-figure">
-  <img src="Assets/KeyboardS_Main.png" width="2076" height="1476" alt="KeyboardS shortcut panel showing the Most Used category with twenty shortcuts">
+  <img src="Assets/optimized/keyboards-main-640.webp" srcset="Assets/optimized/keyboards-main-640.webp 640w, Assets/optimized/keyboards-main-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="2076" height="1476" fetchpriority="high" alt="KeyboardS shortcut panel showing the Most Used category with twenty shortcuts">
   <figcaption>The panel opens on Most Used — the twenty shortcuts you reach for daily.</figcaption>
 </figure>
 
@@ -354,7 +356,7 @@
 </ul>
 
 <figure class="reveal">
-  <img src="Assets/KeyboardS_Screenshots.png" width="2076" height="1476" loading="lazy" alt="KeyboardS showing the Screenshots category with seven macOS screen capture shortcuts">
+  <img src="Assets/optimized/keyboards-screenshots-640.webp" srcset="Assets/optimized/keyboards-screenshots-640.webp 640w, Assets/optimized/keyboards-screenshots-1280.webp 1280w" sizes="(max-width: 680px) calc(100vw - 48px), 632px" width="2076" height="1476" loading="lazy" decoding="async" alt="KeyboardS showing the Screenshots category with seven macOS screen capture shortcuts">
   <figcaption>Pick a category from the sidebar, or just start typing to search across all of them.</figcaption>
 </figure>
 
